@@ -60,6 +60,8 @@ namespace Mailbird.Apps.Calendar
         
         private void Scheduler_OnEditAppointmentFormShowing(object sender, EditAppointmentFormEventArgs e)
         {
+            if (ViewModel == null) return;
+
             e.Cancel = true;
             ViewModel.OpenInnerFlyout(Scheduler);
             FlyoutControl.Focus();

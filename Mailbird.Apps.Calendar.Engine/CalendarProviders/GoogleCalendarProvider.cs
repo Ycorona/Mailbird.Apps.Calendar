@@ -122,13 +122,13 @@ namespace Mailbird.Apps.Calendar.Engine.CalendarProviders
             googleEvent.Summary = appointment.Subject;
             googleEvent.Description = appointment.Description;
             googleEvent.Location = appointment.Location;
-            _calendarService.Events.Update(googleEvent, appointment.Calendar.CalendarId, googleEvent.Id);
+            _calendarService.Events.Update(googleEvent, appointment.Calendar.CalendarId, googleEvent.Id).Execute();
             return true;
         }
 
         public bool RemoveAppointment(Appointment appointment)
         {
-            _calendarService.Events.Delete(appointment.Calendar.CalendarId, appointment.Id.ToString());
+            _calendarService.Events.Delete(appointment.Calendar.CalendarId, appointment.Id.ToString()).Execute();
             return true;
         }
     }
